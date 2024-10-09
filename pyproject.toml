@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "book_shop_drf_p23"
+version = "0.1.0"
+description = ""
+authors = ["xolmomin <xolmomin@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "5.1.2"
+flake8 = "^7.1.1"
+isort = "^5.13.2"
+djangorestframework = "^3.15.2"
+django-filter = "^24.3"
+django-mptt = "^0.16.0"
+drf-spectacular = "^0.27.2"
+pillow = "^10.4.0"
+
+
+[tool.isort]
+skip = [".git", ".venv", "venv"]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
