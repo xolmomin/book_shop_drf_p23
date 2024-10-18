@@ -1,3 +1,5 @@
+from time import time
+
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
@@ -13,7 +15,7 @@ class ActivationEmailService:
 
     def generate_activation_link(self):
         token = self.token_generator.make_token(self.user)
-        uid = urlsafe_base64_encode(force_bytes(f"{self.user.pk}/{self.user.is_active}"))
+        uid = urlsafe_base64_encode(force_bytes(f"{self.user.pk}/{self.user.is_active}{int(time())}"))
         return f"{self.host_url}/api/v1/users/activate/{uid}/{token}"
 
     def send_activation_email(self):

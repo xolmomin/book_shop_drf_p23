@@ -1,3 +1,5 @@
+from time import time
+
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.http import urlsafe_base64_decode
 from drf_spectacular.utils import extend_schema
@@ -75,7 +77,9 @@ class UserActivateAPIView(APIView):
     def get(self, request, uidb64, token):
         try:
             uid = urlsafe_base64_decode(uidb64).decode()
-            uid, is_active = uid.split('/')
+            uid, is_active, _created_at = uid.split('/')
+            if int(time()) - int(_created_at) > 259200:
+                raise AuthenticationFailed('Havola yaroqsiz yoki muddati o‘tgan.')
             user = User.objects.get(pk=uid, is_active=is_active)
         except (TypeError, ValueError, OverflowError, User.DoesNotExist):
             user = None
@@ -121,4 +125,3 @@ class AddressDestroyUpdateAPIView(mixins.UpdateModelMixin, mixins.DestroyModelMi
             self.perform_destroy(instance)
             return Response(status=status.HTTP_204_NO_CONTENT)
         return Response({"message": "ozi 1ta qoldi!"})
-
