@@ -4,11 +4,11 @@ from django.contrib.auth.hashers import make_password
 from django.core.management.base import BaseCommand
 from faker.proxy import Faker
 
+from shops.models import Category
 from users.models import User, Author, Address, Country
 
-
 class Command(BaseCommand):
-    help = "Closes the specified poll for voting"
+    help = "dokumentatsiya"
     model_list = {'user', 'author', 'address', 'book'}
 
     def __init__(self, stdout=None, stderr=None, no_color=False, force_color=False):
@@ -16,6 +16,8 @@ class Command(BaseCommand):
         super().__init__(stdout, stderr, no_color, force_color)
 
     def add_arguments(self, parser):
+        # parser.add_argument('-u', '--user', type=int, default=0, help='User nechta qoshish kerakligi')
+
         for model in self.model_list:
             parser.add_argument(f'--{model}', type=int, default=0)
 
@@ -58,8 +60,7 @@ class Command(BaseCommand):
                 state=self.f.state(),
                 postal_code=self.f.postalcode(),
                 country_id=Country.objects.order_by('?').values_list('id', flat=True).first(),
-                user_id=User.objects.order_by('?').values_list('id', flat=True).first(),
-
+                user_id=User.objects.order_by('?').values_list('id', flat=True).first()
             ))
         Address.objects.bulk_create(address_list)
         self.stdout.write(self.style.SUCCESS(f"Address malumotlari {count} tadan qo'shildi"))
