@@ -9,6 +9,6 @@ urlpatterns = [
 
     path('register', RegisterCreateAPIView.as_view(), name='register'),
     path('login', LoginAPIView.as_view(), name='login'),
-    path('activate/<uidb64>/<token>', UserActivateAPIView.as_view(), name='activate_user'),
+    path('activate/<str:uidb64>/<str:token>', UserActivateAPIView.as_view(), name='activate_user'),
 
 ]

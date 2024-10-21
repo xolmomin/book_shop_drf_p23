@@ -72,6 +72,7 @@ class LoginAPIView(GenericAPIView):
 
 @extend_schema(tags=['auth'])
 class UserActivateAPIView(APIView):
+    serializer_class = None
     authentication_classes = ()
 
     def get(self, request, uidb64, token):
