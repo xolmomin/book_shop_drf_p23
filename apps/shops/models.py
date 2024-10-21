@@ -17,6 +17,9 @@ class Category(MPTTModel):
     parent = TreeForeignKey('self', CASCADE, null=True, blank=True, related_name='subcategories')
     section = ForeignKey('shops.Section', CASCADE, null=True, blank=True, related_name='categories')
 
+    def __str__(self):
+        return f"{self.id} - {self.name}"
+
     class MPTTMeta:
         order_insertion_by = ['name']
 
