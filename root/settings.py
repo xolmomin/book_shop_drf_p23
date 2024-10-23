@@ -29,7 +29,6 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'mptt',
     'django_jsonform',
-
 ]
 
 MIDDLEWARE = [

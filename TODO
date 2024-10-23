@@ -36,31 +36,31 @@ Task
 3.3✅ register one-time link
 3.4 is_premium userlarga ertaroq emailiga xabar borishi kerak [celery]
 3.5✅ pochtaga yuborilgan one-time link ni expire_date 3kun bo'lishi kerak
-3.6 parol xato bolsa blok qilish (5minutga)
+3.6✅ parol xato bolsa blok qilish (5minutga)
 3.7✅ django custom commands (for faker) populating data address, author)
 3.8✅ barcha modellarni faker bilan to'ldirish
 4. ✅ user o'zini malumotlarini update qilish apisi
-5. wishlist apilari +
+5. ✅ wishlist apilari +
 6.1✅ address qoshish va listini olish apisi
 6.2✅ edit va ochirish 1tadan kop bolsa (edit qilishda faqat patch bolsin)
 6.3✅ ochirishda default turganlarni ochira olmasligi
 6.4 listini chiqarishda 1chi defaultlar chiqish keyin name ni alfabit boyicha
-
-1. astana (billing)
-2. tashkent (shopping)
-3. boysun
-4. yunusobod
-
 6.5✅ default billing no delete, no edit
 6.6✅ default shipping no delete
-6.7 currency (uzs, usd) (bank.uz)
+6.7✅ currency (uzs, usd) (cbu.uz)
 
 7. database backup docker based
 8. django custom admin
 
-task
 
-1. book detail slug boyicha (romney-a-reckoning-9781982196202)
+task
+1. book detail api slug boyicha (romney-a-reckoning-9781982196202)
+2. author detail api
+3. book detail va listda (default holatda usd boyicha, login qilgan bolsa user, currency boyicha book price ni chiqarish)
+4. barcha modellarga ntadan data qo'shish
+    4.1 faker orqali (modellarni qarab togrilash)
+    4.2 django seed
+5. wishlist & cart apilarini chiqarish
 
 
 #takrorlash
