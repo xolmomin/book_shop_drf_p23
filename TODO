@@ -45,6 +45,12 @@ Task
 6.2✅ edit va ochirish 1tadan kop bolsa (edit qilishda faqat patch bolsin)
 6.3✅ ochirishda default turganlarni ochira olmasligi
 6.4 listini chiqarishda 1chi defaultlar chiqish keyin name ni alfabit boyicha
+
+1. astana (billing)
+2. tashkent (shopping)
+3. boysun
+4. yunusobod
+
 6.5✅ default billing no delete, no edit
 6.6✅ default shipping no delete
 6.7 currency (uzs, usd) (bank.uz)
@@ -54,6 +60,7 @@ Task
 
 task
 
+1. book detail slug boyicha (romney-a-reckoning-9781982196202)
 
 
 #takrorlash

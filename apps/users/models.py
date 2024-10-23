@@ -29,7 +29,11 @@ class Author(Model):
     description = TextField(null=True, blank=True)
 
     def __str__(self):
-        return f"{self.first_name}{self.last_name}"
+        return f"{self.first_name} {self.last_name}"
+
+    @property
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"
 
 
 class Address(TimeBasedModel):

@@ -1,11 +1,17 @@
 from django.contrib import admin
+from django.contrib.admin import ModelAdmin
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
 
 from users.forms import CustomAdminAuthenticationForm
-from users.models import User
+from users.models import User, Author
 
 admin.AdminSite.login_form = CustomAdminAuthenticationForm
+
+
+@admin.register(Author)
+class AuthorModelAdmin(ModelAdmin):
+    search_fields = ['first_name', 'last_name']
 
 
 @admin.register(User)

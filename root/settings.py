@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'drf_spectacular',
     'mptt',
+    'django_jsonform',
+
 ]
 
 MIDDLEWARE = [

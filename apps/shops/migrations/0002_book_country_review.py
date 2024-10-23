@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                 ("updated_at", models.DateTimeField(auto_now_add=True)),
                 ("created_at", models.DateTimeField(auto_now=True)),
                 ("title", models.CharField(max_length=255)),
-                ("slug", models.CharField(max_length=255, unique=True)),
+                ("slug", models.CharField(max_length=255, unique=True, editable=False)),
                 ("overview", models.TextField()),
                 ("features", models.JSONField()),
                 (
