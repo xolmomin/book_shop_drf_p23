@@ -64,8 +64,12 @@ AUTH_USER_MODEL = 'users.User'
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": 'book_shop_db',
+        "USER": 'postgres',
+        "PASSWORD": '1',
+        "HOST": 'localhost',
+        "PORT": '5432'
     }
 }
 
@@ -90,7 +94,7 @@ TIME_ZONE = "Asia/Tashkent"
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
@@ -111,6 +115,22 @@ EMAIL_HOST_USER = 'rvkamronbek@gmail.com'
 EMAIL_HOST_PASSWORD = 'lsjw bobj kams uzam'
 
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
+
+# CELERY_TASK_QUEUES = {
+#     'low_priority': {
+#         'exchange': 'low_priority', # unused
+#         'routing_key': 'low_priority',
+#     },
+#     'high_priority': {
+#         'exchange': 'high_priority', # unused
+#         'routing_key': 'high_priority',
+#     },
+#     'default': {
+#          'exchange': 'default',
+#          'routing_key': 'default'
+#      },
+# }
+
 
 #
 # LOGGING = {

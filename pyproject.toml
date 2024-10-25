@@ -20,6 +20,7 @@ celery = {extras = ["redis"], version = "^5.4.0"}
 faker = "^30.6.0"
 requests = "^2.32.3"
 django-jsonform = "^2.23.1"
+psycopg2-binary = "^2.9.10"
 
 
 [tool.isort]

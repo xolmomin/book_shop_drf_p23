@@ -95,7 +95,7 @@ class Book(SlugTimeBasedModel):
     reviews_count = PositiveIntegerField(db_default=0, editable=False)
 
     def save(self, *args, force_insert=False, force_update=False, using=None, update_fields=None):
-        self.slug = f"{slugify(self.title)}-{self.features['isbn_13']}"
+        self.slug = f"{slugify(self.title)}"
 
         super().save(*args, force_insert=force_insert, force_update=force_update, using=using,
                      update_fields=update_fields)

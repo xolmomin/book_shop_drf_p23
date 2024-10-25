@@ -69,3 +69,7 @@ serializer
 drf
 signals
 pytest, unittest
+
+
+10.10.3.122:8000/api/v1/users/register?email=rvkamronbek@gmail.com&high=high
+
