@@ -1,6 +1,7 @@
 from time import time
 
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.db.models import F, Case, BooleanField, When
 from django.utils.http import urlsafe_base64_decode
 from drf_spectacular.utils import extend_schema
 from rest_framework import status, mixins
@@ -99,7 +100,24 @@ class AddressListCreateAPIView(ListCreateAPIView):
     permission_classes = IsAuthenticated,
 
     def get_queryset(self):
-        return super().get_queryset().filter(user=self.request.user)
+        qs = super().get_queryset()
+        user = self.request.user
+        return (
+            qs.filter(user=user)
+            .annotate(
+                shipping_address_id=Case(
+                    When(user__shipping_address_id=F('id'), then=False),
+                    default=True,
+                    output_field=BooleanField()
+                ),
+                billing_address_id=Case(
+                    When(user__billing_address_id=F('id'), then=False),
+                    default=True,
+                    output_field=BooleanField()
+                ),
+            )
+            .order_by('shipping_address_id', 'billing_address_id', 'first_name', 'last_name')
+        )
 
 
 @extend_schema(tags=['shops'])

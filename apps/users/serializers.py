@@ -8,10 +8,16 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from users.models import User, Address, Country, Author
 
 
-class AuthorModelSerializer(ModelSerializer):
+class AuthorListModelSerializer(ModelSerializer):
     class Meta:
         model = Author
         exclude = 'description',
+
+
+class AuthorDetailModelSerializer(ModelSerializer):
+    class Meta:
+        model = Author
+        exclude = ()
 
 
 class CountryModelSerializer(ModelSerializer):
