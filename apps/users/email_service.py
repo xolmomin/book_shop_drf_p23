@@ -33,6 +33,6 @@ class ActivationEmailService:
         from_email = 'From <from@example.com>'
         to = email
         if priority == 'high':
-            return send_activation_email_task.apply_async(args=[subject, plain_message, to, html_message], priority=8)
+            return send_activation_email_task.apply_async(args=[subject, plain_message, to, html_message], queue='high_priority')
         else:
-            return send_activation_email_task.apply_async(args=[subject, plain_message, to, html_message])
+            return send_activation_email_task.apply_async(args=[subject, plain_message, to, html_message], queue='low_priority')

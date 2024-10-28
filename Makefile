@@ -3,7 +3,8 @@ mig:
 	python3 manage.py migrate
 
 celery:
-	celery -A root worker -l INFO
+	celery -A root worker -l INFO --concurrency=4 -Q high_priority -n worker1
+	celery -A root worker -l INFO --concurrency=1 -Q low_priority -n worker3
 
 loaddata:
 	python3 manage.py loaddata country

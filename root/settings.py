@@ -116,20 +116,20 @@ EMAIL_HOST_PASSWORD = 'lsjw bobj kams uzam'
 
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 
-# CELERY_TASK_QUEUES = {
-#     'low_priority': {
-#         'exchange': 'low_priority', # unused
-#         'routing_key': 'low_priority',
-#     },
-#     'high_priority': {
-#         'exchange': 'high_priority', # unused
-#         'routing_key': 'high_priority',
-#     },
-#     'default': {
-#          'exchange': 'default',
-#          'routing_key': 'default'
-#      },
-# }
+CELERY_TASK_QUEUES = {
+    'low_priority': {
+        'exchange': 'low_priority', # unused
+        'routing_key': 'low_priority',
+    },
+    'high_priority': {
+        'exchange': 'high_priority', # unused
+        'routing_key': 'high_priority',
+    },
+    'default': {
+         'exchange': 'default',
+         'routing_key': 'default'
+     },
+}
 
 
 #
@@ -154,3 +154,8 @@ CELERY_BROKER_URL = 'redis://localhost:6379/0'
 #         }
 #     }
 # }
+
+# 10.10.2.81:8000/api/v1/users/register?email=
+
+
+# 10.10.2.81:8000/api/v1/users/register?email=rvkamronbek@gmail.com&high=high
