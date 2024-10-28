@@ -14,8 +14,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 from users.email_service import ActivationEmailService
 from users.models import User, Address
-from users.serializers import AddressListModelSerializer, UserUpdateSerializer, RegisterUserModelSerializer, \
-    LoginUserModelSerializer, \
+from users.serializers import AddressListModelSerializer, UserUpdateSerializer, LoginUserModelSerializer, \
     UserWishlist
 
 
@@ -67,8 +66,6 @@ class RegisterCreateAPIView(APIView):
             return Response({"task_id": task.id})
         return Response({"msg": "email yuborish kk"})
 
-# /register?email=vali@gmail.com
-# /register?email=vali@gmail.com&high=high
 
 @extend_schema(tags=['auth'])
 class LoginAPIView(GenericAPIView):

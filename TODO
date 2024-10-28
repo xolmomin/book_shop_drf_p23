@@ -34,7 +34,7 @@ Task
 3.1✅ adminkaga email orqali kirish
 3.2✅ register qismi celery ishlatish
 3.3✅ register one-time link
-3.4 is_premium userlarga ertaroq emailiga xabar borishi kerak [celery]
+3.4✅ is_premium userlarga ertaroq emailiga xabar borishi kerak [celery]
 3.5✅ pochtaga yuborilgan one-time link ni expire_date 3kun bo'lishi kerak
 3.6✅ parol xato bolsa blok qilish (5minutga)
 3.7✅ django custom commands (for faker) populating data address, author)
